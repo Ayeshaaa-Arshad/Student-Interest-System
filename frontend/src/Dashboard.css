@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  text-align: center;
+}
+
+.interests,
+.distinct-interests {
+  flex: 1;
+  width: 33.33%;
+  margin-top: 20px;
+}
+
+.top-interests .interest-tile,
+.bottom-interests .interest-tile,
+.count-tile {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  width: 110px;
+}
+
+
+.top-interests .interest-tile {
+  background-color: #435E55FF;
+  color: #fff;
+}
+
+.bottom-interests .interest-tile {
+  background-color: #435E55FF;
+  color: #fff;
+}
+
+.count-tile {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 50px;
+  margin: 30px;
+  margin-bottom:50px;
+  padding-bottom:40px;
+  width:250px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.count-tile p {
+  margin: 5px 5px;
+  color: #184A45FF;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+.interest-name {
+  font-weight: bold;
+}
+
+.interest-count {
+  color: #888;
+}
+body {
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  color: #38404d;
+}
+.activity-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.last-30-days-activity,
+.last-24-hours-activity,
+.students-status-grid,
+.active-hours {
+  width: 48%; /* Two elements on the same line */
+  margin-bottom: 20px; /* Space between rows */
+}
+
