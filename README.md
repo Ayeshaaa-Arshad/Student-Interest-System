@@ -1,4 +1,5 @@
-**Student Interests System**
+                                            ** Student Interests System**
+
 **Overview**
   The Student Interests System is a comprehensive web application designed to manage student information and interests within an educational institution. This system provides various features to add, view, edit, and delete student records, along with functionalities to track and analyze student interests, demographics, and activity.
 
