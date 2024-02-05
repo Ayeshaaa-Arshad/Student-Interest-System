@@ -16,7 +16,10 @@ from .Serializers import TopInterestsSerializer, StudentSerializer, DepartmentSe
     DepartmentDistributionSerializer, GenderDistributionSerializer, UserSerializer
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
 class TopInterestsAPIView(APIView):
     def get(self, request, format=None):
         # Get all interests from students
@@ -384,6 +387,7 @@ def interest_list(request):
     except Exception as e:
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+<<<<<<< HEAD
 # @api_view(['POST'])
 # def add_student(request):
 #     if request.method == 'POST':
@@ -392,15 +396,23 @@ def interest_list(request):
 #             serializer.save()
 #             return Response(serializer.data, status=status.HTTP_201_CREATED)
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+=======
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
 @api_view(['POST'])
 def add_student(request):
     if request.method == 'POST':
         serializer = StudentSerializer(data=request.data)
+<<<<<<< HEAD
 
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+=======
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
@@ -431,4 +443,8 @@ def login_view(request):
         login(request, user)
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
+<<<<<<< HEAD
     return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+=======
+    return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22

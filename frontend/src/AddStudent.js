@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AddStudent.css';
 
+=======
+// AddStudent.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './AddStudent.css';
+//import { useHistory } from 'react-router-dom';
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
 
 const AddStudent = () => {
   const [interests, setInterests] = useState([]);
   const [selectedInterest, setSelectedInterest] = useState('');
   const [newInterest, setNewInterest] = useState('');
+<<<<<<< HEAD
   const [departments, setDepartments] = useState([]);
   const [selectedDepartment, setSelectedDepartment] = useState('');
+=======
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
   const [formData, setFormData] = useState({
     name: '',
     roll_number: '',
@@ -23,6 +34,7 @@ const AddStudent = () => {
     enrollment_date: null,
   });
 
+<<<<<<< HEAD
   const fetchInterests = async () => {
     try {
       const response = await axios.get('http://127.0.0.1:8000/api/interests');
@@ -128,6 +140,84 @@ const handleInterestChange = (event) => {
   const selectedInterestObject = interests.find((interest) => interest.id === selectedValue);
   console.log('Selected Interest Object:', selectedInterestObject);
 
+=======
+
+//  const history = useHistory();
+const fetchInterests = async () => {
+  try {
+    const response = await axios.get('http://127.0.0.1:8000/api/interests');
+    setInterests(response.data);
+    console.log('Fetched Interests:', response.data);
+  } catch (error) {
+    console.error('Error fetching interests:', error.message);
+  }
+};
+
+useEffect(() => {
+  const fetchData = async () => {
+    await fetchInterests();
+  };
+
+  fetchData();
+}, []); // Empty dependency array ensures that the effect runs only once
+
+
+
+  const handleInputChange = (e) => {
+  const { name, value } = e.target;
+
+  // Check if the changed field is 'interest' and update its structure accordingly
+  if (name === 'interest') {
+    setFormData({
+      ...formData,
+      [name]: value, // Assuming 'value' is the ID of the selected interest
+    });
+  } else {
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    console.log('selectedInterest:', selectedInterest);
+    console.log('formData:', formData);
+
+    // Fetch the selected interest based on its ID
+    const selectedInterestObject = interests.find(interest => interest.id === selectedInterest);
+
+    // Check if selectedInterestObject is available
+    if (!selectedInterestObject) {
+      console.error('Selected interest not found.');
+      return;
+    }
+
+    // Send the data with the interest field as an object
+    const response = await axios.post('http://127.0.0.1:8000/api/add_student/', {
+      ...formData,
+      interest: { id: selectedInterestObject.id, name: selectedInterestObject.name },
+    });
+
+    console.log('Student added successfully:', response.data);
+
+    // Redirect to the students route
+    // history.push('/students');
+  } catch (error) {
+    console.error('Error adding student:', error.response.data);
+  }
+};
+
+
+
+const handleInterestChange = (event) => {
+  const selectedValue = event.target.value;
+
+  // Update the selectedInterest state
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
   setSelectedInterest(selectedValue);
 
   setFormData({
@@ -146,12 +236,17 @@ const handleInterestChange = (event) => {
       setInterests([...interests, response.data]);
       setSelectedInterest(response.data.id);
       setNewInterest('');
+<<<<<<< HEAD
       console.log('Added Interest:', response.data);
+=======
+      console.error('Added Student:');
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
     } catch (error) {
       console.error('Error adding interest:', error.message);
     }
   };
 
+<<<<<<< HEAD
 const handleDepartmentChange = (event) => {
   const selectedValue = parseInt(event.target.value, 10);
   console.log('Selected Department:', selectedValue);
@@ -168,6 +263,8 @@ const handleDepartmentChange = (event) => {
 };
 
 
+=======
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
   return (
     <div className="add-container">
       <h1 className="center">Student Interest System</h1>
@@ -212,12 +309,19 @@ const handleDepartmentChange = (event) => {
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* Row 3 */}
+=======
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
         <div className="form-row">
           {/* Dropdown for existing interests */}
           <div className="field">
             <label>Interest:</label>
+<<<<<<< HEAD
             <select name="interest" value={selectedInterest} onChange={handleInterestChange}>
+=======
+           <select name="interest" value={selectedInterest} onChange={handleInterestChange}>
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
               <option value="">Select an interest</option>
               {interests.map((interest) => (
                 <option key={interest.id} value={interest.id}>
@@ -227,6 +331,7 @@ const handleDepartmentChange = (event) => {
             </select>
           </div>
 
+<<<<<<< HEAD
           {/* Input field for new interest */}
           <div className="field">
             <label>New Interest:</label>
@@ -239,12 +344,25 @@ const handleDepartmentChange = (event) => {
               Add Interest
             </button>
           </div>
+=======
+      {/* Input field for new interest */}
+      <div className="field">
+        <label>New Interest:</label>
+        <input type="text" name="newInterest" value={newInterest} onChange={handleNewInterestChange} />
+      </div>
+
+          {/* Button to add a new interest */}
+          <div className="buttons">
+          <button type="button" onClick={handleAddInterest} className="Add-Button">Add Interest</button>
+        </div>
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
         </div>
 
         {/* Row 4 */}
         <div className="form-row">
           <div className="field">
             <label>Department:</label>
+<<<<<<< HEAD
             <select name="dept_id" value={selectedDepartment} onChange={handleDepartmentChange}>
               <option value="">Select a department</option>
               {departments.map((department) => (
@@ -253,6 +371,9 @@ const handleDepartmentChange = (event) => {
                 </option>
               ))}
             </select>
+=======
+            <input type="text" name="dept_id" onChange={handleInputChange} />
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
           </div>
 
           <div className="field">
@@ -281,12 +402,17 @@ const handleDepartmentChange = (event) => {
 
         {/* Row 6 */}
         <div className="form-row">
+<<<<<<< HEAD
           <button type="submit" className="create-button">
             Create
           </button>
           <button type="button" className="cancel-button">
             Cancel
           </button>
+=======
+          <button type="submit" className="create-button">Create</button>
+          <button type="button" className="cancel-button">Cancel</button>
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
         </div>
       </form>
     </div>

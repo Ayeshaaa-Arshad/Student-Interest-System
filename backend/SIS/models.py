@@ -34,7 +34,11 @@ class Student(models.Model):
     city = models.CharField(max_length=255)
     degree = models.CharField(max_length=255)
     dob = models.DateField()
+<<<<<<< HEAD
     interest = models.ForeignKey(Interest, on_delete=models.CASCADE, null=True)
+=======
+    interest = models.ForeignKey(Interest, on_delete=models.CASCADE)
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
     dept_id = models.ForeignKey(Department, on_delete=models.CASCADE)
     graduation_date = models.DateField(null=True, blank=True)
     enrollment_date = models.DateField(null=True, blank=True)

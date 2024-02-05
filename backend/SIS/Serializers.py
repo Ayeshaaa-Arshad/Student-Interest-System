@@ -14,6 +14,7 @@ class InterestSerializer(serializers.ModelSerializer):
         model = Interest
         fields = ['id', 'name']
 
+<<<<<<< HEAD
 # class StudentSerializer(serializers.ModelSerializer):
 #     # Assuming InterestSerializer is used here
 #     interest = InterestSerializer()
@@ -27,11 +28,18 @@ class StudentSerializer(serializers.ModelSerializer):
     interest = InterestSerializer(read_only=False)
     dept_id = serializers.PrimaryKeyRelatedField(queryset=Department.objects.all())
 
+=======
+class StudentSerializer(serializers.ModelSerializer):
+    # Assuming InterestSerializer is used here
+    interest = InterestSerializer()
+    dept_id = serializers.CharField(source='dept_id.deptName')
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
 
     class Meta:
         model = Student
         fields = ['id', 'roll_number', 'name', 'city', 'degree', 'dob', 'interest', 'dept_id']
 
+<<<<<<< HEAD
     def create(self, validated_data):
         # Extract the 'interest' data from validated_data
         interest_data = validated_data.pop('interest', None)
@@ -49,6 +57,8 @@ class StudentSerializer(serializers.ModelSerializer):
 
 
 
+=======
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
 class TopInterestsSerializer(serializers.Serializer):
     # Assuming InterestSerializer is used here
     interest = InterestSerializer()
@@ -86,5 +96,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'password', 'profile']
+<<<<<<< HEAD
         extra_kwargs = {'password': {'write_only': True}}
 
+=======
+        extra_kwargs = {'password': {'write_only': True}}
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22

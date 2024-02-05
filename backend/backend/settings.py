@@ -139,7 +139,13 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
+<<<<<<< HEAD
         # 'rest_framework.permissions.IsAuthenticated',
     ),
 }
 
+=======
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22

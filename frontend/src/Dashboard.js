@@ -3,6 +3,7 @@ import './Dashboard.css';
 import axios from './axiosConfig';
 import React, { useState, useEffect } from 'react';
 import { PieChart, LineChart } from 'react-chartkick';
+<<<<<<< HEAD
 //import { useNavigate } from 'react-router-dom';
 import 'react-chartkick';
 import 'chartkick/chart.js';
@@ -13,6 +14,14 @@ import AddStudent from './AddStudent';
 
 const Dashboard = () => {
   //const navigate=useNavigate();
+=======
+import { useNavigate } from 'react-router-dom';
+import 'react-chartkick';
+import 'chartkick/chart.js';
+
+const Dashboard = () => {
+  const navigate=useNavigate();
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
   const [topInterests, setTopInterests] = useState([]);
   const [bottomInterests, setBottomInterests] = useState([]);
   const [distinctInterests, setDistinctInterests] = useState(0);
@@ -102,8 +111,13 @@ const Dashboard = () => {
         <h1>Student Interests System</h1>
       </center>
       <div className="buttons">
+<<<<<<< HEAD
         <Link to={`/students`} className="add-student-button">Student List</Link>
         <Link to={`/AddStudent`} className="add-student-button">Add Student</Link>
+=======
+        <button className="add-student-button" onClick={()=>navigate('/students')}>Student List</button>
+        <button className="add-student-button" onClick={()=>navigate('/addstudent')>Add Student</button>
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
       </div>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           {/* Interests Section */}

@@ -73,7 +73,11 @@ th {
 .view-button,
 .edit-button,
 .delete-button {
+<<<<<<< HEAD
     margin: 3px;
+=======
+    margin: 5px;
+>>>>>>> 0f7aab7dc7ee46e859dd06eddb41ca9e575c5d22
     padding: 8px;
     color: white;
     background-color: #435E55FF;
